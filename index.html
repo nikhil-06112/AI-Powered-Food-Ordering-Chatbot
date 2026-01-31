@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpiceBite – Fresh Indian Flavors</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <span class="logo-icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="18" fill="url(#logo-grad)" stroke="#E85D04" stroke-width="1.5"/>
+            <path d="M20 10c-2 0-4 2-4 5v2c0 3 2 5 4 5s4-2 4-5v-2c0-3-2-5-4-5z" fill="#fff"/>
+            <path d="M14 22h12v8c0 2-1 4-3 4H17c-2 0-3-2-3-4v-8z" fill="#fff"/>
+            <ellipse cx="20" cy="26" rx="3" ry="1.5" fill="#E85D04" opacity="0.8"/>
+            <defs><linearGradient id="logo-grad" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#F4A261"/><stop offset="1" stop-color="#E85D04"/></linearGradient></defs>
+          </svg>
+        </span>
+        <span class="logo-text">SpiceBite</span>
+      </a>
+      <nav class="nav">
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <button type="button" class="cart-toggle" id="cartToggle" aria-label="Open cart">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="container hero-inner">
+        <h1>Fresh Indian Flavors</h1>
+        <p>Order your favorite dishes and chat with our assistant for a seamless experience.</p>
+        <div class="hero-cta">
+          <a href="#menu" class="btn btn-primary">View Menu</a>
+          <p class="hero-chat-hint">Or chat with our assistant to place an order</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="container">
+        <h2>Our Menu</h2>
+        <p class="section-sub">All prices in ₹ (Rupees)</p>
+        <div class="menu-grid" id="menuGrid">
+          <!-- Menu items injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="container">
+        <h2>About SpiceBite</h2>
+        <p>We bring you authentic Indian street food and comfort dishes, made fresh. Use the chat assistant to place orders or ask anything—we're here to help.</p>
+      </div>
+    </section>
+  </main>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button type="button" class="cart-close" id="cartClose" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-body">
+      <ul class="cart-list" id="cartList"></ul>
+      <div class="cart-empty" id="cartEmpty">Your cart is empty. Add items from the menu!</div>
+      <div class="cart-footer" id="cartFooter" hidden>
+        <p class="cart-total">Total: <strong id="cartTotal">₹0</strong></p>
+        <button type="button" class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</button>
+      </div>
+    </div>
+  </aside>
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+
+  <!-- Dialogflow Messenger (FoodOrderingBot) - floating chat widget -->
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="SpiceBite-Assistant"
+  agent-id="f6bedc4a-0dd0-4b88-9702-8e88e0bd3e98"
+  language-code="en"
+></df-messenger>
+
+
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; SpiceBite. Fresh Indian Flavors.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
